@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="The Ordinary Day">
+    <title>THE ORDINARY DAY</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+   <div id="errlog" style="display:none;"></div>
+
+<script>
+window.onerror = null;
+
+window.addEventListener('unhandledrejection', function(e) {
+    // disabled
+});
+</script>
+   
+    <!-- MAIN CANVAS -->
+    <canvas id="gc"></canvas>
+    <canvas id="mmCanvas" width="68" height="68" style="position:fixed;top:.7rem;left:50%;transform:translateX(-50%);z-index:20;pointer-events:none;"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div id="locLabel">BEDROOM</div>
+        <div id="clockLabel">07:14</div>
+        <div id="debugInfo" class="debug-info"></div>
+    </div>
+
+    <!-- EFFECTS -->
+    <div id="vig"></div>
+    <div id="flash"></div>
+    <div id="policeFlash"></div>
+    <div id="prompt"></div>
+
+    <!-- CONTROLS -->
+    <div id="joyBase"><div id="joyKnob"></div></div>
+    <div id="lookPad"></div>
+    <div id="actBtn">USE<br>/ TAP</div>
+
+    <!-- PHONE RING -->
+    <div id="phoneRing">
+        <span id="phoneIcon">📱</span>
+        <div id="callerName">MARCUS</div>
+        <div id="callerSub">incoming call...</div>
+    </div>
+
+    <!-- NARRATION -->
+    <div id="narBox">
+        <div id="narName"></div>
+        <div id="narText"></div>
+        <div id="narHint">tap to continue ▶</div>
+    </div>
+
+    <!-- CHOICES -->
+    <div id="choiceBox">
+        <div class="clabel">— make your choice —</div>
+    </div>
+
+    <!-- FULLSCREEN -->
+    <button id="fsBtn">⛶ FULL</button>
+    <button id="audioToggle" class="audio-toggle">🔊 SOUND</button>
+
+    <!-- TITLE SCREEN -->
+    <div class="screen" id="titleScreen">
+        <h1>THE ORDINARY<br>DAY</h1>
+        <p class="sub">MONDAY · NOVEMBER · YOUR STORY</p>
+        <button class="btn" onclick="startGame()">[ BEGIN ]</button>
+        <p class="sub" style="margin-top:3rem;font-size:0.5rem;opacity:0.4;">DEBUG: Press D for debug info</p>
+    </div>
+
+    <!-- ENDING -->
+    <div id="ending">
+        <div id="endTitle"></div>
+        <div id="endText"></div>
+        <button class="btn" onclick="restartGame()">[ PLAY AGAIN ]</button>
+    </div>
+
+    <!-- JAVASCRIPT MODULES -->
+    <script src="js/debug.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game-state.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/rendering.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/story.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
